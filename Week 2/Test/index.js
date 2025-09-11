@@ -12,6 +12,9 @@ const port = process.env.PORT || "8888";
 app.set("views", path.join(__dirname, "templates")); // for Mac users, it's recommended to use "views" as the template folder name (most reliable)
 app.set("view engine", "pug"); //set app to use "Pug" as the template engine
 
+// set up static path for static files
+app.use(express.static(path.join(__dirname, "public")));
+
 // HOME PAGE
 app.get("/", (request, response) => {
     response.render("index", { title: "Home" })

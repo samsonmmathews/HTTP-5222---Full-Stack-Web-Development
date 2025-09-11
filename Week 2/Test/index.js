@@ -14,7 +14,10 @@ app.set("view engine", "pug"); //set app to use "Pug" as the template engine
 
 // HOME PAGE
 app.get("/", (request, response) => {
-    response.render("index")
+    response.render("index", { title: "Home" })
+});
+app.get("/about", (request, response) => {
+    response.render("about", { title: "About" })
 });
 
 // test app to see if it's working

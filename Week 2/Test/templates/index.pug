@@ -1,13 +1,5 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="utf-8")
-        title My first Express app
-    body
-        header#header
-            h2#site-name 
-                a(href="/") Express site 
-            main#main 
-                h1 Hello, world! 
-            footer#footer 
-                p &copy; Copyright HTTP5222, 2025
+extends layout 
+
+block layout-content 
+    h1 Welcome to my first Express app! 
+    p This is just to test Express and Node.js 

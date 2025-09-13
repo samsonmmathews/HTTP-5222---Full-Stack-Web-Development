@@ -1,0 +1,39 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: bisque;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+#site-name {
+    font-size: 4em;
+}
+
+#site-name a, nav a {
+    color: green;
+}
+
+#site-name a {
+    text-decoration: none;
+}
+
+#fruit-name, #fresh-fruits {
+    font-style: italic;
+}
+
+#fruits {
+    width: 300px;
+    height: auto;
+}

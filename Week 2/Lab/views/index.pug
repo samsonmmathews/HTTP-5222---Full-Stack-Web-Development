@@ -1,0 +1,30 @@
+extends layout 
+
+block append scripts
+    script(src="/js/home.js")
+
+block layout-content 
+    h1 Welcome to Grocery Mart! 
+    p We offer fresh groceries - everytime! 
+    img(src="img/01.jpg", alt="Bunch of vegetables")
+    //- Image taken from unsplash: https://unsplash.com/photos/bunch-of-vegetables-D6Tu_L3chLE
+    
+    h2 What can you expect from us next week
+    p#fresh-fruits Fresh fruits 
+        ul 
+            li 
+                p#fruit-name Apples
+                img#fruits(src="img/apples.jpg", alt="Bunch of red apples")
+                //- Image taken from unsplash: https://unsplash.com/photos/bunch-of-red-apples-wXuzS9xR49M
+            li 
+                p#fruit-name Mangoes
+                img#fruits(src="img/mangoes.jpg", alt="Bunch of mangoes")
+                //- Image taken from unsplash: https://unsplash.com/photos/yellow-and-green-round-fruits-lHHNyK3c57g
+            li
+                p#fruit-name Grapes 
+                img#fruits(src="img/grapes.jpg", alt="Purple grapes")
+                //- Image taken from unsplash: https://unsplash.com/photos/purple-grapes-lot-y2MeW00BdBo
+            li 
+                p#fruit-name Bananas
+                img#fruits(src="img/bananas.jpg", alt="A bunch of bananas")
+                //- Image taken from unsplash: https://unsplash.com/photos/a-bunch-of-bananas-puP2IMOclo0

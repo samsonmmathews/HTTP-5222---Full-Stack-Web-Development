@@ -1,7 +1,7 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "My first Express app",
+  "description": "Lab 3 work",
   "main": "index.js",
   "type": "module",
   "scripts": {

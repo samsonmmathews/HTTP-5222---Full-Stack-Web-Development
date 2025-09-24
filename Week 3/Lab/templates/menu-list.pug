@@ -16,3 +16,15 @@ block layout-content
                         form(method="get", action="/admin/menu/delete")
                             input(type="hidden", name="linkId", value=link._id)
                             button(type="submit") Delete 
+    a(href="/admin/menu/edit") + Edit new link
+    table 
+        thead
+            tr 
+                th Link 
+                th Operations 
+        tbody
+            each link in menu 
+                tr 
+                    td #{link.name} (#{link.path})
+                    td 
+                        a(href=`/admin/menu/edit?linkId=${link._id}`) Edit

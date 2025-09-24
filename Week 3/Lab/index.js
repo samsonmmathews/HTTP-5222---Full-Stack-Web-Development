@@ -69,6 +69,31 @@ app.get("/admin/menu/delete", async(request, response) => {
     response.redirect("/admin/menu");
 })
 
+app.get("/admin/menu/edit", async (request, response) => {
+    let linkId = request.query.linkId;
+    if(!linkId) {
+        response.redirect("/admin/menu");
+    }
+    let link = await db.collection("menuLinks").findOne({ _id: new ObjectId(String(linkId)) });
+    let links = await getLinks();
+    response.render("menu-edit", { title: "Edit menu link", menu: links, link })
+});
+app.post("/admin/menu/edit/submit", async (request, response) => {
+    let linkId = request.body.linkId;
+    if(!linkId) {
+        return response.redirect("/admin/menu");
+    }
+    let updatedLink = {
+        weight: Number(request.body.weight),
+        path: request.body.path,
+        name: request.body.name
+    };
+
+    let filter = { _id: new ObjectId(String(linkId)) };
+    await editLink(filter, updatedLink);
+    response.redirect("/admin/menu");
+});
+
 //set server to listen for incoming requests
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
@@ -93,5 +118,16 @@ async function deleteLink(id) {
     let result = await db.collection("menuLinks").deleteOne(deleteQuery);
     if(result.deletedCount === 1) {
         console.log("Link deleted successfully");
+    }
+}
+
+// Function to edit one link document into the menuLinks collection
+async function editLink(filter, link) {
+    let status = await db.collection("menuLinks").updateOne(filter, { $set: link });
+    if(status.modifiedCount === 1) {
+        console.log("Link updated successfully");
+    }
+    else {
+        console.log("No changes were made to the link");
     }
 }

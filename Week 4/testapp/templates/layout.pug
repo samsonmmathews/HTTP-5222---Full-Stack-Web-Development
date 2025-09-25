@@ -1,0 +1,27 @@
+//- This is a Pug-only comment.
+//-
+  You can indent under a Pug comment to create a block comment.
+
+//- For Pug, formatting/indenting is crucial because there are no tags/angle brackets. Element structure/hierarchy is determined by the indenting (indent for a child element).
+//- If indenting is inconsistent or incorrect, it will affect how it compiles to HTML. You can inspect the HTML in the browser to see what your Pug markup compiles to.
+doctype html 
+html(lang="en")
+  //This compiles to an HTML comment.
+  head 
+    meta(charset="utf-8")
+    title #{title} | My first Express app
+    link(rel="stylesheet", href="/css/styles.css")
+    block scripts 
+      //- You can have default common content for a block. It doesn't have to be empty.
+      script(src="/js/common.js")
+  body
+    header#header 
+      h2#site-name 
+        a(href="/") Express site
+      //- Include a snippet of Pug markup using "include".
+      include partials/nav.pug
+    main#main 
+      //- layout-content is the name of a dynamic block of content. Think of it like a widget area in Wordpress.
+      block layout-content
+    footer#footer 
+      p &copy; Copyright HTTP5222, 2025.

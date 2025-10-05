@@ -30,6 +30,16 @@ async function initializeMovies() {
       title: "Coco",
       year: 2017,
       rating: "PG"
+    },
+    {
+      title: "Raiders of the Lost Ark",
+      year: 1981,
+      rating: "PG"
+    },
+    {
+      title: "The Good, the Bad and the Ugly",
+      year: 1966,
+      rating: "R"
     }
   ];
   await Movie.insertMany(movieArray);

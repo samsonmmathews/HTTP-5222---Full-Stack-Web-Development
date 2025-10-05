@@ -1,13 +1,13 @@
 {
   "name": "testapp-b",
   "version": "1.0.0",
-  "description": "Lab-4",
+  "description": "My first Express app",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon ./index.js"
   },
-  "author": "Samson Mathews",
+  "author": "Joanna K",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.6.1",

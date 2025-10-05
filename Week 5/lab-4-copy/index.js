@@ -2,7 +2,7 @@ import "dotenv/config"; //load from the .env file
 import express from "express";
 import path from "path";
 
-import db from "./components/movies/db.js"; //load db.js
+import db from "./components/pets/db.js"; //load db.js
 
 const __dirname = import.meta.dirname;
 
@@ -20,32 +20,28 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //USE PAGE ROUTES FROM ROUTER(S)
 app.get("/", async (request, response) => {
-  let movieList = await db.getMovies();
-  //if there's nothing in the movies collection, initialize with some content then get the movies again
-  if (!movieList.length) {
-    await db.initializeMovies(); 
-    movieList = await db.getMovies();
+  let petList = await db.getPets();
+  //if there's nothing in the pets collection, initialize with some content then get the pets again
+  if (!petList.length) {
+    await db.initializePets(); 
+    petList = await db.getPets();
   }
-  response.render("index", { movies: movieList });
+  response.render("index", { pets: petList });
 });
 app.get("/add", async (request, response) => {
-  //add a movie with some hardcoded values to test
-  await db.addMovie("Inception", 2010, "PG13");
+  //add a pet with some hardcoded values to test
+  await db.addPet("Mittens", "cat", "Ragdoll", 3);
   response.redirect("/");
 });
-// app.get("/insert", async (request, response) => {
-//   await db.insertPet("Fred", "fish", "Koi", 1);
-//   response.redirect("/");
-// });
+app.get("/insert", async (request, response) => {
+  await db.insertPet("Fred", "fish", "Koi", 1);
+  response.redirect("/");
+});
 app.get("/update", async (request, response) => {
   //update something
-  await db.updateMovieRating("Inception", "R");
+  await db.updateName("Fred", "Fred II");
   response.redirect("/");
-});
-app.get("/delete", async (req, res) => {
-  await db.deleteMoviesByRating("R");
-  res.redirect("/");
-});
+})
 
 //set up server listening
 app.listen(port, () => {

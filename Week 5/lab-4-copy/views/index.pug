@@ -1,0 +1,9 @@
+extends common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Testing Mongoose
+    each p in pets 
+      h2 #{p.name}, #{p.age} 
+      p Breed: #{p.breed} 
+      p Type: #{p.type}

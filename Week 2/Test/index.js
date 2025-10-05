@@ -8,7 +8,7 @@ import { MongoClient, ObjectId } from "mongodb"; // import the MongoClient class
 // FOr MongoDB, the connection string has the following format:
 // The protocol will be either mongodb:// (localhost) OR mongodb+srv:// (online)
 // After the protocol, `dbuser:dbpassword@dbhost/`
-const dbUrl = `mongodb+srv://testdb:jLRDY0ERPtGEp1mV@cluster0.xusshfi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const dbUrl = '<REPLACE_WITH_YOUR_OWN>';
 const db = new MongoClient(dbUrl).db("testdb"); // Create a new client connection and select the "testdb" database
 
 const __dirname = import.meta.dirname;

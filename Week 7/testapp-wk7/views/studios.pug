@@ -2,4 +2,7 @@ extends layout
 
 block main-content 
   h1.page-title Movie Studios 
+  ol 
+    each s in studios 
+      li #{s.name} (#{s.country})
   

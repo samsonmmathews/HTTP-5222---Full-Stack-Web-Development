@@ -19,10 +19,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //PAGE ROUTES
 app.get("/", async (request, response) => {
-  
+  let movies = await trakt.getTrendingMovies();
+  console.log(movies);
+  response.render("index", {movies: movies});
 });
 app.get("/movie/:imdbId/studios", async (request, response) => {
-
+  let studios = await trakt.getStudiosByMovieId(request.params.imdbId);
+  response.render("studios", {studios: studios});
 });
 
 //set up server listening

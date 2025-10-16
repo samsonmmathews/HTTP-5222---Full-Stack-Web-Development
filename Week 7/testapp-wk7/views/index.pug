@@ -1,5 +1,10 @@
 extends layout 
 
 block main-content 
-  h1.page-title Hello! 
+  h1.page-title A List of Trending Movies
+  ul 
+    each m in movies
+      li 
+        img(src=`//${m.movie.images.poster}`, height="150", alt=`Movie poster for ${m.movie.title}`)
+        a(href=`/movie/${m.movie.ids.imdb}/studios`) #{m.movie.title} (#{m.movie.year})
   

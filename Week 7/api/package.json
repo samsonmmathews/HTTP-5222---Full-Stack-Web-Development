@@ -1,0 +1,19 @@
+{
+  "name": "testapi",
+  "version": "1.0.0",
+  "description": "App to create a test API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "author": "Joanna",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

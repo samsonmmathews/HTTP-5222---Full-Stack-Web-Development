@@ -35,7 +35,41 @@ async function getStudiosByMovieId(imdbId) {
   return await response.json();
 }
 
+//Function to retrieve a list of anticipated shows.
+async function getAnticipatedShows() {
+  let reqUrl = `${trakt}/shows/anticipated`;
+  let response = await fetch(
+    reqUrl,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "trakt-api-version": 2,
+        "trakt-api-key": process.env.TRAKT_CLIENT_ID
+      }
+    }
+  );
+  return await response.json();
+}
+
+//Function to display info about a selected show
+async function getShowDetails(showId) {
+  let reqUrl = `${trakt}/shows/${showId}?extended=full,images`;
+  let response = await fetch(
+    reqUrl,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "trakt-api-version": 2,
+        "trakt-api-key": process.env.TRAKT_CLIENT_ID
+      }
+    }
+  );
+  return await response.json();
+}
+
 export default {
   getTrendingMovies,
-  getStudiosByMovieId
+  getStudiosByMovieId,
+  getAnticipatedShows,
+  getShowDetails
 };

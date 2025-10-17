@@ -27,6 +27,14 @@ app.get("/movie/:imdbId/studios", async (request, response) => {
   let studios = await trakt.getStudiosByMovieId(request.params.imdbId);
   response.render("studios", {studios: studios});
 });
+app.get("/anticipated", async (request, response) => {
+  let anticipated = await trakt.getAnticipatedShows();
+  response.render("anticipated", {shows: anticipated});
+});
+app.get("/show/:showId", async (request, response) => {
+  let show = await trakt.getShowDetails(request.params.showId);
+  response.render("showdetails", {show: show});
+});
 
 //set up server listening
 app.listen(port, () => {

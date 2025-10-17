@@ -1,0 +1,9 @@
+extends layout 
+
+block main-content 
+  h1.page-title Most Anticipated Shows 
+  ol 
+    each s in shows 
+      li 
+        a(href=`/show/${s.show.ids.trakt}`) #{s.show.title} (#{s.show.year})
+  

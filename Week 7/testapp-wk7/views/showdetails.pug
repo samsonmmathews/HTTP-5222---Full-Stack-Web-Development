@@ -1,0 +1,9 @@
+extends layout 
+
+block main-content 
+  h1.page-title #{show.title} (#{show.year})
+  
+  h3 Tagline: #{show.tagline}
+  p #{show.overview}
+  img(src=`//${show.images.poster}`, alt=`Poster for ${show.title}`, height="250")
+  
